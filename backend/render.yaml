@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: backend-service
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    rootDir: backend
