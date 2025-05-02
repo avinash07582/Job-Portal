@@ -312,7 +312,7 @@ const JobDescription = () => {
   }
 
   return (
-    <motiongit.div
+    <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -395,7 +395,7 @@ const JobDescription = () => {
           <span className="font-bold">Posted Date:</span> <span className="text-gray-600">{singlejob?.createdAt?.split("T")[0] || "N/A"}</span>
         </div>
       </motion.div>
-    </motiongi.div>
+    </motion.div>
   );
 };
 
