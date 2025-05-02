@@ -7,7 +7,7 @@ import {
     DialogTitle,
     DialogFooter,
     DialogTrigger,
-} from "@/components/ui/dialog"
+} from "../Components/ui/dialog"
 import { Label } from './ui/label'
 import { Input } from './ui/input'
 import { Button } from './ui/button'

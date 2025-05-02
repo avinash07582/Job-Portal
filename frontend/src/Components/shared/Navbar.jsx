@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
+import { Popover, PopoverContent, PopoverTrigger } from "../../Components/ui/popover";
 import { Button } from '../ui/button';
 import { Avatar } from '../ui/avatar';
-import { AvatarImage } from '@radix-ui/react-avatar';
+import { AvatarImage } from '../../Components/ui/avatar';
 import { LogOut, User2, Home, Briefcase, Compass, BriefcaseBusiness } from "lucide-react";
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
