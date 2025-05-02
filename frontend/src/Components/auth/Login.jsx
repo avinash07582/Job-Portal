@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../shared/Navbar'
 import { Input } from "../ui/input"
-import { Label } from "@/components/ui/label"
-import { RadioGroup } from "@/components/ui/radio-group"
+// import { Label } from "@/components/ui/label"
+import { Label } from "../../Components/ui/label";
+
+import { RadioGroup } from "../../Components/ui/radio-group"
 import { Button } from '../ui/button'
 import { toast } from 'sonner'
 import axios from 'axios' // ✅ Import axios
@@ -11,7 +13,7 @@ import { USER_API_END_POINT } from "../../utilis/constant";
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading } from '../../redux/authSlice'
 import { setUser } from '../../redux/authSlice'
-import store from '../../redux/store'
+// import store from '../../redux/store'
 import { Loader2 } from 'lucide-react'
  // Adjust the path if needed
 
