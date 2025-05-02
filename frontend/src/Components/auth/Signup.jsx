@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../shared/Navbar'
 import {Input} from "../ui/input"
-import { Label } from "@/components/ui/label"
-import { RadioGroup} from "@/components/ui/radio-group"
+import { Label } from "../../Components/ui/label"
+import { RadioGroup} from "../../Components/ui/radio-group"
 import { Button } from '../ui/button'
 import axios from 'axios'
 import { toast } from 'sonner'

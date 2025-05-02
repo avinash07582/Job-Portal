@@ -45,7 +45,7 @@
 //           </div>
 //           <div className=" grid grid-cols-2 gap-4">
 //           <div className="">
-//           <Label> Company Name</Label>
+//           <> Company Name</>
 //           <Input
 //             type="text"
 //             name="name"
@@ -54,7 +54,7 @@
 //           />
 //           </div>
 //           <div className="">
-//           <Label>  Description</Label>
+//           <>  Description</>
 //           <Input
 //             type="text"
 //             name=" description"
