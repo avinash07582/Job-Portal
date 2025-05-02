@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "../Components/ui/badge"
 import { useNavigate } from 'react-router-dom'
 
 const LatestJobCards = ({job}) => {

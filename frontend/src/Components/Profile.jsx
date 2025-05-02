@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import Navbar from './shared/Navbar'
 import { Avatar, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "../Components/ui/badge"
 import { Contact2, Mail, Pen } from 'lucide-react'
 import { Label } from './ui/label'
 import AppliedJobTable from './AppliedJobTable'
 import UpdateProfileDialog from './UpdateProfileDialog'
 import { useSelector } from 'react-redux'
-import store from '../redux/store'
+// import store from '../redux/store'
 import useGetAppliedJobs from '../hooks/useGetAppliedJob'
 
 

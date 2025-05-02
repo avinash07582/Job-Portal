@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { useSelector } from 'react-redux'
-import store from '../redux/store'
+// import store from '../redux/store'
 
 
 const AppliedJobTable = () => {

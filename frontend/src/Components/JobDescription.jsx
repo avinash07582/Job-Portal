@@ -257,7 +257,7 @@
 
 
 import React, { useEffect, useState } from "react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "../Components/ui/badge";
 import { Button } from "./ui/button";
 import { useParams } from "react-router-dom";
 import { setSingleJob } from "../redux/jobSlice";
