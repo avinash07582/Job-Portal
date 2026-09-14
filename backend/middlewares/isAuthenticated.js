@@ -30,13 +30,14 @@
 
 // module.exports = isAuthenticated;
 
+const jwt = require("jsonwebtoken");
+
 const isAuthenticated = async (req, res, next) => {
     try {
-
         console.log("COOKIES:", req.cookies);
-        console.log("TOKEN:", req.cookies.token);
+        console.log("TOKEN:", req.cookies?.token);
 
-        const token = req.cookies.token;
+        const token = req.cookies?.token;
 
         if (!token) {
             return res.status(401).json({
@@ -44,7 +45,10 @@ const isAuthenticated = async (req, res, next) => {
             });
         }
 
-        const decode = jwt.verify(token, process.env.JWT_SECRET);
+        const decode = jwt.verify(
+            token,
+            process.env.JWT_SECRET
+        );
 
         req.id = decode.userId;
 
@@ -58,3 +62,5 @@ const isAuthenticated = async (req, res, next) => {
         });
     }
 };
+
+module.exports = isAuthenticated;
