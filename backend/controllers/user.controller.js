@@ -79,7 +79,7 @@ module.exports.login = async (req, res) => {
         }
 
 
-      return res.status(200).cookie("token", token, {
+      rreturn res.status(200).cookie("token", token, {
     maxAge: 1 * 24 * 60 * 60 * 1000,
     httpOnly: true,
     secure: true,
@@ -87,6 +87,7 @@ module.exports.login = async (req, res) => {
 }).json({
     message:`Welcome Back ${user.fullname}`,
     user,
+    token,
     success:true,
 });
 
