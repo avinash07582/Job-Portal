@@ -21,9 +21,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 app.use(cookieParser());
 const corsOptions = {
-    origin: "http://localhost:5176", // Frontend URL
-    credentials: true
+  origin: [
+    "http://localhost:5176",
+    "https://job-portal-5-frontend.onrender.com"
+  ],
+  credentials: true
 };
+
+app.use(cors(corsOptions));
 
 app.use(cors(corsOptions)); // ✅ Correct usage
 
