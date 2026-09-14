@@ -14,33 +14,38 @@ const CompanyCreate = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [companyName, setCompanyName] = useState()
-     const registerNewCompany = async ()=>{
-              try {
-                 const res = await axios.post(`${COMPANY_API_END_POINT}/register`,{companyName},{
-                    headers: {
-                        'Content-Type': 'application/json'
-                     },
-                     withCredentials: true,
+    const registerNewCompany = async () => {
+    try {
+        const res = await axios.post(
+            `${COMPANY_API_END_POINT}/register`,
+            { companyName },
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                withCredentials: true,
+            }
+        );
 
-                  });
-                  if(res?.data?.success){
-                     dispatch(setSingleCompany(res.data.company))
-                     toast.success(res.data.message)
-                     toast.success(res.data.msg); 
-                     const companyId = res?.data?.company?._id
-                     navigate(`/admin/companies/${companyId}`)
-                  }
-                
-                
-              } catch (error) {
-                 console.log(error.message);
-                toast.success(res.data.message)
-                
-             }
- }
+        if (res?.data?.success) {
+            dispatch(setSingleCompany(res.data.company));
 
-    
-    
+            toast.success(res.data.msg);
+
+            const companyId = res.data.company._id;
+            navigate(`/admin/companies/${companyId}`);
+        }
+
+    } catch (error) {
+        console.log(error);
+
+        toast.error(
+            error.response?.data?.error ||
+            error.response?.data?.msg ||
+            "Company registration failed"
+        );
+    }
+};
     
   return (
     <div>
