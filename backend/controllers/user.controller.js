@@ -85,10 +85,10 @@ module.exports.login = async (req, res) => {
     secure: true,
     sameSite: "none"
 }).json({
-            message:`Welcome Back ${user.fullname}`,
-            user,
-            success:true,
-        });
+    message:`Welcome Back ${user.fullname}`,
+    user,
+    success:true,
+});
 
       
 
