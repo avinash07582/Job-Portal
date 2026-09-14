@@ -47,10 +47,12 @@ const Login = () => {
       });
 
       if (res.data.success) {
-        dispatch(setUser(res.data.user))
-        toast.success(res.data.message);
-        navigate("/"); // ✅ Navigate after successful login
-      }
+    localStorage.setItem("token", res.data.token);
+    axios.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`;
+    dispatch(setUser(res.data.user))
+    toast.success(res.data.message);
+    navigate("/");
+}
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data?.message || "Login failed");
