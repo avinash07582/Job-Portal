@@ -155,6 +155,7 @@
 
 
 
+
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../shared/Navbar';
@@ -241,139 +242,151 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
 
-    
+      {/* ================= BACKGROUND ================= */}
 
       <div className="absolute inset-0 pointer-events-none">
 
-       
-        <div className="
-          absolute
-          -top-32
-          -left-32
-          w-72 h-72
-          sm:w-96 sm:h-96
-          bg-purple-300/25
-          rounded-full
-          blur-3xl
-          animate-pulse
-        " />
+        {/* Top Left Glow */}
+        <div
+          className="
+            absolute
+            -top-32
+            -left-32
+            w-72
+            h-72
+            sm:w-96
+            sm:h-96
+            rounded-full
+            blur-3xl
+            bg-[#8200DB]/20
+            animate-pulse
+          "
+        />
 
-       
-        <div className="
-          absolute
-          top-1/3
-          -right-40
-          w-72 h-72
-          sm:w-96 sm:h-96
-          bg-indigo-300/20
-          rounded-full
-          blur-3xl
-          animate-pulse
-          [animation-delay:1.5s]
-        " />
+        {/* Right Glow */}
+        <div
+          className="
+            absolute
+            top-1/3
+            -right-40
+            w-72
+            h-72
+            sm:w-96
+            sm:h-96
+            rounded-full
+            blur-3xl
+            bg-[#8200DB]/15
+            animate-pulse
+          "
+        />
 
-     
-        <div className="
-          absolute
-          -bottom-40
-          left-1/3
-          w-80 h-80
-          sm:w-[500px] sm:h-[500px]
-          bg-purple-200/20
-          rounded-full
-          blur-3xl
-        " />
+        {/* Bottom Glow */}
+        <div
+          className="
+            absolute
+            -bottom-40
+            left-1/3
+            w-80
+            h-80
+            sm:w-[500px]
+            sm:h-[500px]
+            rounded-full
+            blur-3xl
+            bg-[#8200DB]/10
+          "
+        />
 
       </div>
 
- 
+      {/* ================= NAVBAR ================= */}
 
       <div className="relative z-20">
         <Navbar />
       </div>
 
-   
+      {/* ================= LOGIN SECTION ================= */}
 
-      <main className="
-        relative
-        z-10
-        min-h-[calc(100vh-72px)]
-        flex
-        items-center
-        justify-center
-        px-4
-        py-10
-        sm:px-6
-        sm:py-12
-      ">
+      <main
+        className="
+          relative
+          z-10
+          min-h-[calc(100vh-72px)]
+          flex
+          items-center
+          justify-center
+          px-4
+          py-10
+          sm:px-6
+          sm:py-12
+        "
+      >
 
-        <div className="
-          w-full
-          max-w-md
-        ">
+        <div className="w-full max-w-md">
 
-        
+          {/* ================= HEADER ================= */}
 
-          <div className="
-            text-center
-            mb-6
-            sm:mb-8
-            animate-[fadeInUp_0.6s_ease-out]
-          ">
+          <div
+            className="
+              text-center
+              mb-6
+              sm:mb-8
+              animate-[fadeInUp_0.6s_ease-out]
+            "
+          >
 
-          
-            <div className="
-              inline-flex
-              items-center
-              justify-center
-              w-14 h-14
-              sm:w-16 sm:h-16
-              rounded-2xl
-              bg-gradient-to-br
-              from-purple-600
-              to-indigo-600
-              shadow-xl
-              shadow-purple-300/40
-              mb-4
-              transition-transform
-              duration-300
-              hover:scale-110
-              hover:rotate-2
-            ">
-
+            {/* Logo Icon */}
+            <div
+              className="
+                inline-flex
+                items-center
+                justify-center
+                w-14
+                h-14
+                sm:w-16
+                sm:h-16
+                rounded-2xl
+                bg-[#8200DB]
+                shadow-xl
+                shadow-[#8200DB]/30
+                mb-4
+                transition-all
+                duration-300
+                hover:scale-110
+                hover:rotate-2
+              "
+            >
               <BriefcaseBusiness
-                className="
-                  w-7 h-7
-                  sm:w-8 sm:h-8
-                  text-white
-                "
+                className="w-7 h-7 sm:w-8 sm:h-8 text-white"
               />
-
             </div>
 
-            <h1 className="
-              text-2xl
-              sm:text-3xl
-              font-bold
-              tracking-tight
-              text-gray-900
-            ">
+            <h1
+              className="
+                text-2xl
+                sm:text-3xl
+                font-bold
+                tracking-tight
+                text-gray-900
+              "
+            >
               Welcome Back
             </h1>
 
-            <p className="
-              text-sm
-              sm:text-base
-              text-gray-500
-              mt-2
-              px-4
-            ">
+            <p
+              className="
+                text-sm
+                sm:text-base
+                text-gray-500
+                mt-2
+                px-4
+              "
+            >
               Login to continue your job journey
             </p>
 
           </div>
 
-    
+          {/* ================= LOGIN CARD ================= */}
 
           <form
             onSubmit={submitHandler}
@@ -382,57 +395,57 @@ const Login = () => {
               bg-white/95
               backdrop-blur-xl
               border
-              border-purple-100
+              border-[#8200DB]/10
               rounded-2xl
               p-5
               sm:p-7
               md:p-8
-              shadow-[0_20px_60px_-15px_rgba(124,58,237,0.20)]
+              shadow-[0_20px_60px_-15px_rgba(130,0,219,0.20)]
               animate-[fadeInUp_0.7s_ease-out]
               transition-all
               duration-300
-              hover:shadow-[0_25px_70px_-15px_rgba(124,58,237,0.25)]
+              hover:shadow-[0_25px_70px_-15px_rgba(130,0,219,0.28)]
             "
           >
 
-       
-            <div className="
-              absolute
-              top-0
-              left-6
-              right-6
-              sm:left-8
-              sm:right-8
-              h-[2px]
-              bg-gradient-to-r
-              from-transparent
-              via-purple-500
-              to-transparent
-            " />
+            {/* Top Purple Line */}
+            <div
+              className="
+                absolute
+                top-0
+                left-6
+                right-6
+                sm:left-8
+                sm:right-8
+                h-[2px]
+                bg-gradient-to-r
+                from-transparent
+                via-[#8200DB]
+                to-transparent
+              "
+            />
 
-          
+            {/* ================= EMAIL ================= */}
 
             <div className="mb-5">
 
-              <Label className="
-                text-sm
-                font-medium
-                text-gray-700
-              ">
+              <Label className="text-sm font-medium text-gray-700">
                 Email Address
               </Label>
 
               <div className="relative mt-2">
 
-                <Mail className="
-                  absolute
-                  left-3
-                  top-1/2
-                  -translate-y-1/2
-                  w-4 h-4
-                  text-purple-500
-                  transition-colors
-                " />
+                <Mail
+                  className="
+                    absolute
+                    left-3
+                    top-1/2
+                    -translate-y-1/2
+                    w-4
+                    h-4
+                    text-[#8200DB]
+                  "
+                />
 
                 <Input
                   type="email"
@@ -447,11 +460,11 @@ const Login = () => {
                     rounded-xl
                     border-gray-200
                     bg-white
-                    focus-visible:ring-purple-500
-                    focus-visible:border-purple-400
+                    focus-visible:ring-[#8200DB]
+                    focus-visible:border-[#8200DB]
                     transition-all
                     duration-200
-                    hover:border-purple-300
+                    hover:border-[#8200DB]/50
                   "
                 />
 
@@ -459,28 +472,27 @@ const Login = () => {
 
             </div>
 
-       
+            {/* ================= PASSWORD ================= */}
 
             <div className="mb-5">
 
-              <Label className="
-                text-sm
-                font-medium
-                text-gray-700
-              ">
+              <Label className="text-sm font-medium text-gray-700">
                 Password
               </Label>
 
               <div className="relative mt-2">
 
-                <Lock className="
-                  absolute
-                  left-3
-                  top-1/2
-                  -translate-y-1/2
-                  w-4 h-4
-                  text-purple-500
-                " />
+                <Lock
+                  className="
+                    absolute
+                    left-3
+                    top-1/2
+                    -translate-y-1/2
+                    w-4
+                    h-4
+                    text-[#8200DB]
+                  "
+                />
 
                 <Input
                   type="password"
@@ -495,11 +507,11 @@ const Login = () => {
                     rounded-xl
                     border-gray-200
                     bg-white
-                    focus-visible:ring-purple-500
-                    focus-visible:border-purple-400
+                    focus-visible:ring-[#8200DB]
+                    focus-visible:border-[#8200DB]
                     transition-all
                     duration-200
-                    hover:border-purple-300
+                    hover:border-[#8200DB]/50
                   "
                 />
 
@@ -507,26 +519,23 @@ const Login = () => {
 
             </div>
 
-        
+            {/* ================= ROLE ================= */}
 
             <div className="mb-6">
 
-              <Label className="
-                text-sm
-                font-medium
-                text-gray-700
-              ">
+              <Label className="text-sm font-medium text-gray-700">
                 Login as
               </Label>
 
-              <div className="
-                grid
-                grid-cols-1
-                xs:grid-cols-2
-                sm:grid-cols-2
-                gap-3
-                mt-2
-              ">
+              <div
+                className="
+                  grid
+                  grid-cols-1
+                  sm:grid-cols-2
+                  gap-3
+                  mt-2
+                "
+              >
 
                 {/* STUDENT */}
 
@@ -540,8 +549,8 @@ const Login = () => {
                     duration-300
                     ${
                       input.role === "student"
-                        ? "border-purple-500 bg-purple-50 shadow-md shadow-purple-100 scale-[1.01]"
-                        : "border-gray-200 hover:border-purple-300 hover:bg-purple-50/40"
+                        ? "border-[#8200DB] bg-[#8200DB]/5 shadow-md shadow-[#8200DB]/10 scale-[1.01]"
+                        : "border-gray-200 hover:border-[#8200DB]/40 hover:bg-[#8200DB]/5"
                     }
                   `}
                 >
@@ -559,7 +568,8 @@ const Login = () => {
 
                     <div
                       className={`
-                        w-9 h-9
+                        w-9
+                        h-9
                         shrink-0
                         rounded-lg
                         flex
@@ -569,8 +579,8 @@ const Login = () => {
                         duration-300
                         ${
                           input.role === "student"
-                            ? "bg-purple-600 text-white rotate-3"
-                            : "bg-purple-100 text-purple-600"
+                            ? "bg-[#8200DB] text-white rotate-3"
+                            : "bg-[#8200DB]/10 text-[#8200DB]"
                         }
                       `}
                     >
@@ -579,19 +589,11 @@ const Login = () => {
 
                     <div className="min-w-0">
 
-                      <p className="
-                        text-sm
-                        font-semibold
-                        text-gray-800
-                      ">
+                      <p className="text-sm font-semibold text-gray-800">
                         Student
                       </p>
 
-                      <p className="
-                        text-xs
-                        text-gray-400
-                        truncate
-                      ">
+                      <p className="text-xs text-gray-400">
                         Find jobs
                       </p>
 
@@ -613,8 +615,8 @@ const Login = () => {
                     duration-300
                     ${
                       input.role === "recruiter"
-                        ? "border-purple-500 bg-purple-50 shadow-md shadow-purple-100 scale-[1.01]"
-                        : "border-gray-200 hover:border-purple-300 hover:bg-purple-50/40"
+                        ? "border-[#8200DB] bg-[#8200DB]/5 shadow-md shadow-[#8200DB]/10 scale-[1.01]"
+                        : "border-gray-200 hover:border-[#8200DB]/40 hover:bg-[#8200DB]/5"
                     }
                   `}
                 >
@@ -632,7 +634,8 @@ const Login = () => {
 
                     <div
                       className={`
-                        w-9 h-9
+                        w-9
+                        h-9
                         shrink-0
                         rounded-lg
                         flex
@@ -642,8 +645,8 @@ const Login = () => {
                         duration-300
                         ${
                           input.role === "recruiter"
-                            ? "bg-purple-600 text-white -rotate-3"
-                            : "bg-purple-100 text-purple-600"
+                            ? "bg-[#8200DB] text-white -rotate-3"
+                            : "bg-[#8200DB]/10 text-[#8200DB]"
                         }
                       `}
                     >
@@ -652,19 +655,11 @@ const Login = () => {
 
                     <div className="min-w-0">
 
-                      <p className="
-                        text-sm
-                        font-semibold
-                        text-gray-800
-                      ">
+                      <p className="text-sm font-semibold text-gray-800">
                         Recruiter
                       </p>
 
-                      <p className="
-                        text-xs
-                        text-gray-400
-                        truncate
-                      ">
+                      <p className="text-xs text-gray-400">
                         Post jobs
                       </p>
 
@@ -678,6 +673,7 @@ const Login = () => {
 
             </div>
 
+            {/* ================= LOGIN BUTTON ================= */}
 
             <Button
               type="submit"
@@ -686,19 +682,17 @@ const Login = () => {
                 w-full
                 h-11
                 rounded-xl
-                bg-gradient-to-r
-                from-purple-600
-                to-indigo-600
-                hover:from-purple-700
-                hover:to-indigo-700
+                bg-[#8200DB]
+                hover:bg-[#7000BD]
                 text-white
                 font-semibold
                 shadow-lg
-                shadow-purple-300/30
+                shadow-[#8200DB]/30
                 transition-all
                 duration-300
                 hover:-translate-y-0.5
                 hover:shadow-xl
+                hover:shadow-[#8200DB]/30
                 active:scale-[0.98]
                 disabled:opacity-70
               "
@@ -706,11 +700,14 @@ const Login = () => {
 
               {loading ? (
                 <>
-                  <Loader2 className="
-                    mr-2
-                    h-4 w-4
-                    animate-spin
-                  " />
+                  <Loader2
+                    className="
+                      mr-2
+                      h-4
+                      w-4
+                      animate-spin
+                    "
+                  />
 
                   Please Wait...
                 </>
@@ -720,13 +717,16 @@ const Login = () => {
 
             </Button>
 
-         
-            <div className="
-              text-center
-              mt-6
-              text-sm
-              text-gray-500
-            ">
+            {/* ================= SIGNUP ================= */}
+
+            <div
+              className="
+                text-center
+                mt-6
+                text-sm
+                text-gray-500
+              "
+            >
 
               Don't have an account?{" "}
 
@@ -734,8 +734,8 @@ const Login = () => {
                 to="/signup"
                 className="
                   font-semibold
-                  text-purple-600
-                  hover:text-purple-700
+                  text-[#8200DB]
+                  hover:text-[#7000BD]
                   hover:underline
                   transition-colors
                 "
@@ -747,16 +747,18 @@ const Login = () => {
 
           </form>
 
-     
+          {/* ================= FOOTER ================= */}
 
-          <p className="
-            text-center
-            text-xs
-            text-gray-400
-            mt-5
-            sm:mt-6
-            animate-[fadeIn_1s_ease-out]
-          ">
+          <p
+            className="
+              text-center
+              text-xs
+              text-gray-400
+              mt-5
+              sm:mt-6
+              animate-[fadeIn_1s_ease-out]
+            "
+          >
             Secure login • Find your next opportunity
           </p>
 
@@ -764,7 +766,7 @@ const Login = () => {
 
       </main>
 
-  
+      {/* ================= ANIMATIONS ================= */}
 
       <style>{`
         @keyframes fadeInUp {
@@ -772,6 +774,7 @@ const Login = () => {
             opacity: 0;
             transform: translateY(20px);
           }
+
           to {
             opacity: 1;
             transform: translateY(0);
@@ -782,6 +785,7 @@ const Login = () => {
           from {
             opacity: 0;
           }
+
           to {
             opacity: 1;
           }
@@ -803,16 +807,6 @@ const Login = () => {
 };
 
 export default Login;
-
-
-
-
-
-
-
-
-
-
 
 
 
