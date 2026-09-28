@@ -1,67 +1,6 @@
-// import React, { useEffect, useState } from 'react'
-// import { RadioGroup, RadioGroupItem } from './ui/radio-group'
-// import { Label } from './ui/label'
-// import { useDispatch } from 'react-redux'
-// import { setSearchedQuery } from '../redux/jobSlice'
 
 
-// const fitlerData = [
-//     {
-//         fitlerType: "Location",
-//         array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"]
-//     },
-//     {
-//         fitlerType: "Industry",
-//         array: ["Frontend Developer", "Backend Developer", "FullStack Developer"]
-//     },
-//     {
-//         fitlerType: "Salary",
-//         array: ["0-40k", "42-1lakh", "1lakh to 5lakh"]
-//     },
-// ]
-
-// const FilterCard = () => {
-//     const [selectedValue, setSelectedValue] = useState("")
-//     const dispatch = useDispatch()
-
-//     const changeHandler = (value) => {
-//         setSelectedValue(value)
-//     }
-//     useEffect(() => {
-//         dispatch(setSearchedQuery(selectedValue))
-
-//     }, [selectedValue]);
-
-//     return (
-//         <div className='w-full bg-white p-3 rounded-md'>
-//             <h1 className='font-bold text-lg'>Filter Jobs</h1>
-//             <hr className='mt-3' />
-//             <RadioGroup value={selectedValue} onValueChange={changeHandler} >
-//                 {
-//                     fitlerData.map((data, index) => (
-//                         <div>
-//                             <h1 className='font-bold text-lg'>{data.fitlerType}</h1>
-//                             {
-//                                 data.array.map((item, idx) => {
-//                                     const itemId = `id${index}-${idx}`
-//                                     return (
-//                                         <div className='flex items-center space-x-2 my-2'>
-//                                             <RadioGroupItem value={item} id={itemId} />
-//                                             <Label htmlFor={itemId}>{item}</Label>
-//                                         </div>
-//                                     )
-//                                 })
-//                             }
-//                         </div>
-//                     ))
-//                 }
-//             </RadioGroup>
-//         </div>
-//     )
-// }
-
-// export default FilterCard
-import React, { useEffect, useState } from "react";
+iimport React, { useEffect, useState } from "react";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { Label } from "./ui/label";
 import { useDispatch } from "react-redux";
@@ -105,13 +44,13 @@ const FilterCard = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full bg-white shadow-lg rounded-lg p-5"
+      className="w-full bg-white shadow-lg rounded-lg p-4 sm:p-5"
     >
       {/* Filter Heading */}
       <motion.h1
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-bold text-xl text-gray-800 flex items-center gap-2"
+        className="font-bold text-lg sm:text-xl text-gray-800 flex items-center gap-2"
       >
         🎯 Filter Jobs
       </motion.h1>
@@ -129,7 +68,7 @@ const FilterCard = () => {
             className="mb-4"
           >
             {/* Category Title with Icon */}
-            <h2 className="font-semibold text-lg flex items-center gap-2 text-gray-700">
+            <h2 className="font-semibold text-base sm:text-lg flex items-center gap-2 text-gray-700">
               {data.icon} {data.filterType}
             </h2>
 
@@ -143,7 +82,10 @@ const FilterCard = () => {
                   className="flex items-center space-x-3 my-2 p-2 rounded-lg hover:bg-gray-100 transition"
                 >
                   <RadioGroupItem value={item} id={itemId} />
-                  <Label htmlFor={itemId} className="cursor-pointer text-gray-700">
+                  <Label
+                    htmlFor={itemId}
+                    className="cursor-pointer text-sm sm:text-base text-gray-700"
+                  >
                     {item}
                   </Label>
                 </motion.div>
@@ -218,4 +160,4 @@ export default FilterCard;
 //     )
 // }
 
-// export default FilterCard
+// export default FilterCard`1
