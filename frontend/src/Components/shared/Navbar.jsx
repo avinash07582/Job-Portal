@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { Popover, PopoverContent, PopoverTrigger } from "../../Components/ui/popover";
@@ -33,42 +32,45 @@ const Navbar = () => {
 
   return (
     <div className='bg-white shadow-md'>
-      <div className='flex items-center justify-between mx-auto max-w-7xl px-6 h-16'>
+      <div className='flex flex-wrap items-center justify-between mx-auto max-w-7xl px-4 sm:px-6 min-h-16 py-3 gap-3'>
 
         {/* Left Section - Logo with Icon */}
         <div className="left flex items-center gap-2">
-          <BriefcaseBusiness   onClick={()=>navigate("/")}   className="h-8 w-8 text-[#972081]" /> {/* Stylish Icon */}
-          <h1 className='text-2xl font-bold text-gray-800'>
+          <BriefcaseBusiness
+            onClick={() => navigate("/")}
+            className="h-7 w-7 sm:h-8 sm:w-8 text-[#972081]"
+          />
+          <h1 className='text-xl sm:text-2xl font-bold text-gray-800'>
             Job <span className='text-[#972081]'>Portal</span>
           </h1>
         </div>
 
         {/* Center - Navigation Links */}
-        <div className="center">
-          <ul className='flex font-medium items-center gap-6 text-gray-700'>
+        <div className="center order-3 md:order-2 w-full md:w-auto">
+          <ul className='flex flex-wrap justify-center font-medium items-center gap-4 sm:gap-6 text-gray-700'>
             {user && user.role === 'recruiter' ? (
               <>
-                <li className='flex items-center gap-2 hover:text-purple-600 transition-all'>
-                  <Briefcase className="h-5 w-5" />
+                <li className='flex items-center gap-1 sm:gap-2 hover:text-purple-600 transition-all'>
+                  <Briefcase className="h-4 w-4 sm:h-5 sm:w-5" />
                   <Link to="/admin/companies">Companies</Link>
                 </li>
-                <li className='flex items-center gap-2 hover:text-purple-600 transition-all'>
-                  <Briefcase className="h-5 w-5" />
+                <li className='flex items-center gap-1 sm:gap-2 hover:text-purple-600 transition-all'>
+                  <Briefcase className="h-4 w-4 sm:h-5 sm:w-5" />
                   <Link to="/admin/jobs">Jobs</Link>
                 </li>
               </>
             ) : (
               <>
-                <li className='flex items-center gap-2 hover:text-purple-600 transition-all'>
-                  <Home className="h-5 w-5" />
+                <li className='flex items-center gap-1 sm:gap-2 hover:text-purple-600 transition-all'>
+                  <Home className="h-4 w-4 sm:h-5 sm:w-5" />
                   <Link to="/">Home</Link>
                 </li>
-                <li className='flex items-center gap-2 hover:text-purple-600 transition-all'>
-                  <Briefcase className="h-5 w-5" />
+                <li className='flex items-center gap-1 sm:gap-2 hover:text-purple-600 transition-all'>
+                  <Briefcase className="h-4 w-4 sm:h-5 sm:w-5" />
                   <Link to="/jobs">Jobs</Link>
                 </li>
-                <li className='flex items-center gap-2 hover:text-purple-600 transition-all'>
-                  <Compass className="h-5 w-5" />
+                <li className='flex items-center gap-1 sm:gap-2 hover:text-purple-600 transition-all'>
+                  <Compass className="h-4 w-4 sm:h-5 sm:w-5" />
                   <Link to="/browse">Browse</Link>
                 </li>
               </>
@@ -77,14 +79,18 @@ const Navbar = () => {
         </div>
 
         {/* Right Section - Login/SignUp or User Profile */}
-        <div className="right flex items-center gap-6">
+        <div className="right flex items-center gap-2 sm:gap-4 md:gap-6 order-2 md:order-3">
           {!user ? (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <Link to="/login">
-                <Button className="bg-purple-500 hover:bg-purple-700">Login</Button>
+                <Button className="bg-purple-500 hover:bg-purple-700 text-sm sm:text-base px-3 sm:px-4">
+                  Login
+                </Button>
               </Link>
               <Link to="/signup">
-                <Button className="bg-gray-200 hover:bg-gray-300 text-gray-800">Sign Up</Button>
+                <Button className="bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm sm:text-base px-3 sm:px-4">
+                  Sign Up
+                </Button>
               </Link>
             </div>
           ) : (
@@ -94,28 +100,28 @@ const Navbar = () => {
                   <AvatarImage src={user?.profile?.profilePhoto} alt="User Profile" />
                 </Avatar>
               </PopoverTrigger>
-              <PopoverContent className='w-72 p-4 rounded-lg shadow-lg border bg-white'>
+              <PopoverContent className='w-[calc(100vw-2rem)] max-w-72 p-4 rounded-lg shadow-lg border bg-white'>
                 <div className="flex items-center gap-4">
-                  <Avatar className="w-12 h-12">
+                  <Avatar className="w-12 h-12 shrink-0">
                     <AvatarImage src={user?.profile?.profilePhoto} alt="User Profile" />
                   </Avatar>
-                  <div>
-                    <h4 className='font-medium text-lg text-gray-800'>{user.fullname}</h4>
-                    <p className='text-sm text-gray-500'>{user?.profile?.bio}</p>
+                  <div className="min-w-0">
+                    <h4 className='font-medium text-lg text-gray-800 truncate'>{user.fullname}</h4>
+                    <p className='text-sm text-gray-500 break-words'>{user?.profile?.bio}</p>
                   </div>
                 </div>
 
                 <div className="flex flex-col mt-4 text-gray-700">
                   {user && user.role === 'student' && (
                     <div className='flex items-center gap-2 cursor-pointer hover:text-purple-600 transition-all'>
-                      <User2 className="h-5 w-5" />
+                      <User2 className="h-5 w-5 shrink-0" />
                       <Button variant="link">
                         <Link to="/profile">View Profile</Link>
                       </Button>
                     </div>
                   )}
                   <div className="flex items-center gap-2 cursor-pointer hover:text-red-600 transition-all">
-                    <LogOut className="h-5 w-5" />
+                    <LogOut className="h-5 w-5 shrink-0" />
                     <Button onClick={logoutHandler} variant="link" className="text-red-500">
                       Logout
                     </Button>
