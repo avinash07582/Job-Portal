@@ -21,13 +21,12 @@ const Home = () => {
     }
   }, []);
   return (
-    <div>
-     <Navbar/>
-     <HeroSection/>
+    <div className="w-full overflow-x-hidden">
+      <Navbar/>
+      <HeroSection/>
       <CategoryCarousel/>
       <LatestJobs/>
-     <Footer/>
-     
+      <Footer/>
     </div>
   )
 }
