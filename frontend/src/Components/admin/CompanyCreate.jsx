@@ -5,7 +5,7 @@ import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import {COMPANY_API_END_POINT} from '../../utilis/constant'
+import { COMPANY_API_END_POINT } from '../../utilis/constant'
 import { toast } from 'sonner'
 import { useDispatch } from 'react-redux'
 import { setSingleCompany } from '../../redux/companySlice'
@@ -14,67 +14,84 @@ const CompanyCreate = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [companyName, setCompanyName] = useState()
+
     const registerNewCompany = async () => {
-    try {
-        const res = await axios.post(
-            `${COMPANY_API_END_POINT}/register`,
-            { companyName },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                withCredentials: true,
+        try {
+            const res = await axios.post(
+                `${COMPANY_API_END_POINT}/register`,
+                { companyName },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    withCredentials: true,
+                }
+            );
+
+            if (res?.data?.success) {
+                dispatch(setSingleCompany(res.data.company));
+
+                toast.success(res.data.msg);
+
+                const companyId = res.data.company._id;
+                navigate(`/admin/companies/${companyId}`);
             }
-        );
 
-        if (res?.data?.success) {
-            dispatch(setSingleCompany(res.data.company));
+        } catch (error) {
+            console.log(error);
 
-            toast.success(res.data.msg);
-
-            const companyId = res.data.company._id;
-            navigate(`/admin/companies/${companyId}`);
+            toast.error(
+                error.response?.data?.error ||
+                error.response?.data?.msg ||
+                "Company registration failed"
+            );
         }
+    };
 
-    } catch (error) {
-        console.log(error);
+    return (
+        <div>
+            <Navbar />
 
-        toast.error(
-            error.response?.data?.error ||
-            error.response?.data?.msg ||
-            "Company registration failed"
-        );
-    }
-};
-    
-  return (
-    <div>
-      <Navbar/>
-      <div className=" max-w-4xl mx-auto">
-      <div className="my-10">
-      <h1 className=' font-bold text-2xl'> Your Company Name</h1>
-      <p className='text-gray-500'> Provide your Company Name you can change it Later</p>
-      </div>
-        
-        <Label>Company Name</Label>
-        <Input
-            type="text"
-            placeholder="Google,Microsoft,etc.."
-            required
-            className="border-2 border-gray-300 rounded-md p-3 mb-5"
-            onChange = {(e)=>setCompanyName(e.target.value)}
-  
-        />
-        <div className=" flex items-center gap-2 my-10">
-            <Button  variant="outline"  onClick ={()=>navigate("/admin/companies")}  >Cancel</Button>
-            <Button   onClick ={registerNewCompany}  >Continue</Button>
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="my-10">
+                    <h1 className='font-bold text-2xl'>
+                        Your Company Name
+                    </h1>
+
+                    <p className='text-gray-500'>
+                        Provide your Company Name you can change it Later
+                    </p>
+                </div>
+
+                <Label>Company Name</Label>
+
+                <Input
+                    type="text"
+                    placeholder="Google,Microsoft,etc.."
+                    required
+                    className="border-2 border-gray-300 rounded-md p-3 mb-5 w-full"
+                    onChange={(e) => setCompanyName(e.target.value)}
+                />
+
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 my-10">
+                    <Button
+                        variant="outline"
+                        onClick={() => navigate("/admin/companies")}
+                        className="w-full sm:w-auto"
+                    >
+                        Cancel
+                    </Button>
+
+                    <Button
+                        onClick={registerNewCompany}
+                        className="w-full sm:w-auto"
+                    >
+                        Continue
+                    </Button>
+                </div>
+            </div>
         </div>
-      </div>
-
-
-
-    </div>
-  )
+    )
 }
 
 export default CompanyCreate
