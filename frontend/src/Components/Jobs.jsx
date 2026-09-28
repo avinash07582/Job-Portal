@@ -1,55 +1,3 @@
-// import React, { useEffect, useState } from 'react'
-// import Navbar from './shared/Navbar'
-// import FilterCard from './FilterCard'
-// import Job from './Job'
-// import { Space } from 'lucide-react'
-// import { useSelector } from 'react-redux'
-// import store from '../redux/store'
-// import {motion} from 'framer-motion'
-// const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-
-// const Jobs = () => {
-//     const {alljobs} = useSelector(store=>store.job)
-//     // const [filterJobs, setFilterJobs] = useState(alljobs)
-    
-//     return (
-//         <div>
-//             <Navbar />
-//             <div className=" max-w-7xl mx-auto mt-5">
-//                 <div className=" flex gap-5">
-//                     <div className="w-20%">
-//                         <FilterCard />
-//                     </div>
-
-//                     {
-//                         alljobs.length <= 0 ? <span> No Job Found</span> : (
-//                             <div className="flex-1 h-[88vh] overflow-y-auto pb-5">
-//                                 <div className="grid grid-cols-3 gap-4">
-//                                     {
-//                                         alljobs.map((job) => (
-//                                             <div 
-                                            
-//                                             key={job?._id}
-//                                               className="">
-//                                                 <Job job ={job} />
-//                                             </div>
-//                                         ))
-//                                     }
-//                                 </div>
-
-//                             </div>
-//                         )
-
-//                     }
-//                 </div>
-
-//             </div>
-
-//         </div>
-//     )
-// }
-
-// export default Jobs
 import React, { useEffect, useState } from 'react'
 import Navbar from './shared/Navbar'
 import FilterCard from './FilterCard'
@@ -81,15 +29,20 @@ const Jobs = () => {
     return (
         <div>
             <Navbar />
-            <div className='max-w-7xl mx-auto mt-5'>
-                <div className='flex gap-5'>
-                    <div className='w-20%'>
+
+            <div className='max-w-7xl mx-auto mt-5 px-4 sm:px-6'>
+                <div className='flex flex-col lg:flex-row gap-5'>
+
+                    <div className='w-full lg:w-20%'>
                         <FilterCard />
                     </div>
+
                     {
-                        filterJobs.length <= 0 ? <span>Job not found</span> : (
-                            <div className='flex-1 h-[88vh] overflow-y-auto pb-5'>
-                                <div className='grid grid-cols-3 gap-4'>
+                        filterJobs.length <= 0 ? (
+                            <span>Job not found</span>
+                        ) : (
+                            <div className='flex-1 h-auto lg:h-[88vh] overflow-y-visible lg:overflow-y-auto pb-5'>
+                                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
                                     {
                                         filterJobs.map((job) => (
                                             <motion.div
@@ -108,9 +61,8 @@ const Jobs = () => {
                     }
                 </div>
             </div>
+
             <Footer/>
-
-
         </div>
     )
 }
