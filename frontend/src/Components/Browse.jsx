@@ -1,44 +1,3 @@
-// import React, { useEffect } from 'react'
-// import Navbar from './shared/Navbar'
-// import Job from './Job'
-// import { useDispatch, useSelector } from 'react-redux'
-// import store from '../redux/store'
-// import { setSearchedQuery } from '../redux/jobSlice'
-// import useGetAllJobs from '../hooks/useGetAllJobs'
-//   // const randomJobs = [1,2,3]
-// const Browse = () => {
-//   useGetAllJobs();
-//   const {alljobs} = useSelector(store=>store.job)
-//   const dispatch = useDispatch()
-//   useEffect(()=>{
-//       return ()=>{
-//         dispatch(setSearchedQuery(""));
-
-//       }
-//   })
-//   return (
-//     <div>
-//      <Navbar/>
-//      <div className="max-w-7xl mx-auto my-10">
-//          <h1 className='font-bold text-xl my-10'> Search Results:( {alljobs?.length})</h1>
-//          <div className=" grid grid-cols-3 gap-4 mt-5">
-//          {
-//            alljobs.map((job)=>{
-//             return(
-//                 <Job  job={job} key={job._id}/>
-//             )
-//            }) 
-//          }
-//          </div>
-        
-//      </div>
-//     </div>
-//   )
-// }
-
-// export default Browse
-
-
 import React, { useEffect } from 'react'
 import Navbar from './shared/Navbar'
 import Job from './Job';
@@ -61,9 +20,9 @@ const Browse = () => {
     return (
         <div>
             <Navbar />
-            <div className='max-w-7xl mx-auto my-10'>
+            <div className='max-w-7xl mx-auto my-10 px-4 sm:px-6'>
                 <h1 className='font-bold text-xl my-10'>Search Results ({alljobs?.length})</h1>
-                <div className='grid grid-cols-3 gap-4'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
                     {
                         alljobs.map((job) => {
                             return (
@@ -80,4 +39,3 @@ const Browse = () => {
 }
 
 export default Browse
-
