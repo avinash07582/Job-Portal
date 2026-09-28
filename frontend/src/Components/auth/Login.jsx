@@ -2,22 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../shared/Navbar'
 import { Input } from "../ui/input"
-// import { Label } from "@/components/ui/label"
 import { Label } from "../../Components/ui/label";
-
 import { RadioGroup } from "../../Components/ui/radio-group"
 import { Button } from '../ui/button'
 import { toast } from 'sonner'
-import axios from 'axios' // ✅ Import axios
+import axios from 'axios'
 import { USER_API_END_POINT } from "../../utilis/constant";
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading } from '../../redux/authSlice'
 import { setUser } from '../../redux/authSlice'
-// import store from '../../redux/store'
 import { Loader2 } from 'lucide-react'
- // Adjust the path if needed
-
-
 
 const Login = () => {
   const [input, setInput] = useState({
@@ -25,10 +19,11 @@ const Login = () => {
     password: '',
     role: '',
   });
-  const {loading,user} = useSelector(store=>store.auth)
+
+  const { loading, user } = useSelector(store => store.auth)
 
   const navigate = useNavigate();
-  const dispatch = useDispatch() // ✅ Fix: Define navigate
+  const dispatch = useDispatch()
 
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -38,7 +33,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-       
+
       const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
         headers: {
           'Content-Type': 'application/json'
@@ -47,32 +42,35 @@ const Login = () => {
       });
 
       if (res.data.success) {
-    localStorage.setItem("token", res.data.token);
-    axios.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`;
-    dispatch(setUser(res.data.user))
-    toast.success(res.data.message);
-    navigate("/");
-}
+        localStorage.setItem("token", res.data.token);
+        axios.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`;
+        dispatch(setUser(res.data.user))
+        toast.success(res.data.message);
+        navigate("/");
+      }
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data?.message || "Login failed");
-    } finally{
+    } finally {
       dispatch(setLoading(false));
-
     }
   };
-  useEffect(()=>{
-    if(user){
+
+  useEffect(() => {
+    if (user) {
       navigate("/")
-
     }
-  },[])
+  }, [])
 
-  return ( // ✅ Move return outside of try/catch
+  return (
     <div>
       <Navbar />
-      <div className='flex items-center justify-center max-w-7xl mx-auto'>
-        <form onSubmit={submitHandler} className='w-1/2 border border-gray-200 rounded-md p-4 my-10'>
+
+      <div className='flex items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6'>
+        <form
+          onSubmit={submitHandler}
+          className='w-full sm:w-3/4 md:w-1/2 border border-gray-200 rounded-md p-4 my-10'
+        >
           <h1 className='font-bold text-xl mb-5'>Login</h1>
 
           <div className="my-2">
@@ -100,7 +98,7 @@ const Login = () => {
           </div>
 
           <div className="flex items-center justify-between">
-            <RadioGroup className="flex items-center gap-6 my-5 font-bold">
+            <RadioGroup className="flex flex-wrap items-center gap-4 sm:gap-6 my-5 font-bold">
               <div className="flex items-center space-x-2">
                 <Input
                   type="radio"
@@ -112,6 +110,7 @@ const Login = () => {
                 />
                 <Label htmlFor="r1">Student</Label>
               </div>
+
               <div className="flex items-center space-x-2">
                 <Input
                   type="radio"
@@ -125,17 +124,27 @@ const Login = () => {
               </div>
             </RadioGroup>
           </div>
+
           {
-         loading ? <Button   className="w-full my-4"><Loader2 className='mr-2 h-4 w-4 animate-spin'/> Please Wait</Button>:
-         
-         <Button type="submit" className="w-full my-4">Login</Button>
-          } 
+            loading
+              ? (
+                <Button className="w-full my-4">
+                  <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                  Please Wait
+                </Button>
+              )
+              : (
+                <Button type="submit" className="w-full my-4">
+                  Login
+                </Button>
+              )
+          }
 
-
-          <span className='mx-20'>
-            Don't have an account? 
+          <span className='block text-center sm:text-left'>
+            Don't have an account?
             <Link to="/signup" className="text-blue-900"> Signup</Link>
           </span>
+
         </form>
       </div>
     </div>
