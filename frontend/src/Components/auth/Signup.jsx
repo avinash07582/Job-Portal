@@ -295,6 +295,14 @@ const Signup = () => {
 
       if (res && res.data) {
         toast.success(res.data.message || "Signup successful!")
+        setInput({
+  fullname: "",
+  email: "",
+  phoneNumber: "",
+  password: "",
+  role: "",
+  file: ""
+});
         navigate("/login")
       } else {
         throw new Error("Empty response from server")
