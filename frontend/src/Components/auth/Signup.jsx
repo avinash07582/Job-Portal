@@ -489,6 +489,7 @@ const Signup = () => {
 
           <form
             onSubmit={submitHandler}
+             autoComplete="off"
             className="
               relative
               bg-white/95
@@ -685,6 +686,7 @@ const Signup = () => {
                 <Input
                   type="password"
                   placeholder="Create a password"
+                    autoComplete="new-password"
                   required
                   value={input.password}
                   name="password"
